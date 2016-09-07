@@ -1,11 +1,11 @@
-# start
+п»ї# start
 usehtml = 1
 showinput 0
 showobjs 0
 showstat 0
 '<center><img src = "/pic/logo.png">'
 ''
-'<h5>Выберите язык | Please choose your language</h5></center>'
+'<h5>Р’С‹Р±РµСЂРёС‚Рµ СЏР·С‹Рє | Please choose your language</h5></center>'
 ' '
 ''
 $start0 = 'start0'
@@ -13,7 +13,7 @@ $start1 = 'start1'
 '<center><table><tr><td><a href = "exec:gt $start0"><img src = "/pic/russia.gif"></a></td><td></td><td><a href = "exec:gt $start1"><img src = "/pic/gb.gif"></a></td></tr></table></center>'
 
 
-act '<b>Русский</b>': gt 'start0'
+act '<b>Р СѓСЃСЃРєРёР№</b>': gt 'start0'
 
 act '<b>English</b>': gt 'start1'
 
@@ -29,21 +29,21 @@ showobjs 0
 lang = 1
 '<center>'
 '<img src = "/pic/logo.png">'
-'<h5>Студия ivsgames представляет:</h5>'
+'<h5>РЎС‚СѓРґРёСЏ ivsgames РїСЂРµРґСЃС‚Р°РІР»СЏРµС‚:</h5>'
 ' '
-'<h6>Игра "Блек Джек" версия 0.02</h6></center>'
+'<h6>РРіСЂР° "Р‘Р»РµРє Р”Р¶РµРє" РІРµСЂСЃРёСЏ 0.02</h6></center>'
 ' '
 ' '
-'Изменения в версии 0.02:'
-'- Добавлены картинки'
-'- Исправлены термины'
-'- Добавлен английский'
+'РР·РјРµРЅРµРЅРёСЏ РІ РІРµСЂСЃРёРё 0.02:'
+'- Р”РѕР±Р°РІР»РµРЅС‹ РєР°СЂС‚РёРЅРєРё'
+'- РСЃРїСЂР°РІР»РµРЅС‹ С‚РµСЂРјРёРЅС‹'
+'- Р”РѕР±Р°РІР»РµРЅ Р°РЅРіР»РёР№СЃРєРёР№'
 your_bank = 99500
 hi_bank = 6500
 
 
 
-act 'Начать': 
+act 'РќР°С‡Р°С‚СЊ': 
 	showstat 1
 	gt 'play'
 end
@@ -99,12 +99,12 @@ i = -1
 		col[i] = cr[j]
 		killvar 'cr',j
 if i < 51 : jump 'ju000b'
-if lang = 1: $next = 'Далее' else: $next = 'Next'
+if lang = 1: $next = 'Р”Р°Р»РµРµ' else: $next = 'Next'
 gt 'play2'
 --- play ---------------------------------
 
 # play2
-!Имеем тасованую колоду: col[i]
+!РРјРµРµРј С‚Р°СЃРѕРІР°РЅСѓСЋ РєРѕР»РѕРґСѓ: col[i]
 set step = 0
 dealer[0]= col[1]
 dealer[1]= col[3]
@@ -120,14 +120,14 @@ killvar 'col',0
 killvar 'col',0
 
 
-!проверка дилер 21
+!РїСЂРѕРІРµСЂРєР° РґРёР»РµСЂ 21
 if lang = 1:
 	if dealer_tot = 21:
 		if you_tot = 21:
-			msg "У дилера и у вас <b>Black Jack</b>"
+			msg "РЈ РґРёР»РµСЂР° Рё Сѓ РІР°СЃ <b>Black Jack</b>"
 			gt 'draw'
 		elseif you_tot <> 21:
-			msg "У дилера <b>Black Jack</b>"
+			msg "РЈ РґРёР»РµСЂР° <b>Black Jack</b>"
 			gt 'lost'
 		end
 	end
@@ -151,15 +151,15 @@ gt 'mplay'
 # mn
 cls
 if lang = 1:
-	pl '<b>Банк: </b><<bank>>'
+	pl '<b>Р‘Р°РЅРє: </b><<bank>>'
 	pl ''
-	pl '<b>Вы:</b>'
+	pl '<b>Р’С‹:</b>'
 	pl '<<your_bank>>'
-	pl '<b>Оппонент:</b>'
+	pl '<b>РћРїРїРѕРЅРµРЅС‚:</b>'
 	pl '<<hi_bank>>'
 	pl ''
 	$play = 'play'
-	pl '<a href = "exec:gt $play">Сдаюсь</a>'
+	pl '<a href = "exec:gt $play">РЎРґР°СЋСЃСЊ</a>'
 elseif lang = 2:
 	pl '<b>Bank:</b><<bank>>'
 	pl ''
@@ -173,10 +173,10 @@ elseif lang = 2:
 end
 
 if lang = 1 and your_bank <= 0: 
-	$results = 'поражением'
+	$results = 'РїРѕСЂР°Р¶РµРЅРёРµРј'
 	gt 'finalend'
 elseif lang = 1 and hi_bank <= 0:
-	$results = 'ПОБЕДОЙ!'
+	$results = 'РџРћР‘Р•Р”РћР™!'
 	gt 'finalend'
 elseif lang = 2 and your_bank <= 0: 
 	$results = 'with the lost'
@@ -231,16 +231,16 @@ gs 'mn'
 gs 'mth'
 
 ''
-if lang = 1: '<b>Ваша рука:</b>' else: '<b>Your Hand</b>'
+if lang = 1: '<b>Р’Р°С€Р° СЂСѓРєР°:</b>' else: '<b>Your Hand</b>'
 i=-1
 :juwz
 	i+=1
 	$yup[i] = func('transition',you[i])
 	*P'<img height="250" src = "<<$yup[i]>>"> '
 if i < arrsize('you')-1: jump 'juwz'
-!if lang = 1: 'Сумма: <<you_tot>>' else: 'Total Amount: <<you_tot>>'
+!if lang = 1: 'РЎСѓРјРјР°: <<you_tot>>' else: 'Total Amount: <<you_tot>>'
 ''
-if lang = 1:'<b>Рука Дилера:</b>' else: "<b>Dealer's Hand</b>"
+if lang = 1:'<b>Р СѓРєР° Р”РёР»РµСЂР°:</b>' else: "<b>Dealer's Hand</b>"
 i=-1
 :juww
 	i+=1
@@ -254,19 +254,19 @@ if i < arrsize('dealer')-1: jump 'juww'
 	!'<<dealer_tot>>'
 
 if you_tot > 21:
-	if lang = 1: msg "Перебор" else: msg "Going Bust"
+	if lang = 1: msg "РџРµСЂРµР±РѕСЂ" else: msg "Going Bust"
 	gt 'lost'
 elseif you_tot = 21 and step = 1:
 	if dealer_val[0] >= 10:
 		' '
 		if lang = 1: 
-			'У вас Black Jack, но у дилера тоже может быть Black Jack!!'
-			'Выберите действие:'
-			act 'Взять выйгрышь x1':
+			'РЈ РІР°СЃ Black Jack, РЅРѕ Сѓ РґРёР»РµСЂР° С‚РѕР¶Рµ РјРѕР¶РµС‚ Р±С‹С‚СЊ Black Jack!!'
+			'Р’С‹Р±РµСЂРёС‚Рµ РґРµР№СЃС‚РІРёРµ:'
+			act 'Р’Р·СЏС‚СЊ РІС‹Р№РіСЂС‹С€СЊ x1':
 				wint = 10
 				gt 'win'
 			end
-			act 'Рискнуть и дать дилеру набрать':
+			act 'Р РёСЃРєРЅСѓС‚СЊ Рё РґР°С‚СЊ РґРёР»РµСЂСѓ РЅР°Р±СЂР°С‚СЊ':
 				gt 'dealercheck'
 			end	
 		elseif lang = 2:
@@ -287,8 +287,8 @@ elseif you_tot = 21 and step = 1:
 elseif you_tot = 21 and step > 1:
 	if lang = 1:
 		' '
-		'У вас 21 очко'
-		act 'Стою!':
+		'РЈ РІР°СЃ 21 РѕС‡РєРѕ'
+		act 'РЎС‚РѕСЋ!':
 			gt 'finalcheck'
 		end
 	elseif lang = 2:
@@ -299,7 +299,7 @@ elseif you_tot = 21 and step > 1:
 		end
 	end
 elseif you_tot < 21:
-	if lang = 1: $hit = 'Хит!'& $stand = 'Стоп!' else: $hit = 'Hit!'& $stand = 'Stand!'
+	if lang = 1: $hit = 'РҐРёС‚!'& $stand = 'РЎС‚РѕРї!' else: $hit = 'Hit!'& $stand = 'Stand!'
 	act $hit:
 		you[yo]= col[0]
 		killvar 'col',0
@@ -452,7 +452,7 @@ if dealer_tot < 21:
 	wint = 15
 	gt 'win'
 elseif dealer_tot > 21:
-	if lang = 1: msg "У дилера перебор!" else: msg "The dealer got burst!"
+	if lang = 1: msg "РЈ РґРёР»РµСЂР° РїРµСЂРµР±РѕСЂ!" else: msg "The dealer got burst!"
 	wint = 15
 	gt 'win'
 elseif dealer_tot = 21:
@@ -522,10 +522,10 @@ end
 
 # draw
 gs 'mn'
-if lang = 1:'<center><h5>НИЧЬЯ</center></h5>' else:'<center><h5>MATCH</center></h5>'
+if lang = 1:'<center><h5>РќРР§Р¬РЇ</center></h5>' else:'<center><h5>MATCH</center></h5>'
 
 '<table width="100%"><tr>'
-if lang = 1:'<td width="550" align = "top"><b>Ваши карты:</b>' else:'<td width="550" align = "top"><b>Your Hand</b>'
+if lang = 1:'<td width="550" align = "top"><b>Р’Р°С€Рё РєР°СЂС‚С‹:</b>' else:'<td width="550" align = "top"><b>Your Hand</b>'
 
 i=-1
 :juwz
@@ -534,9 +534,9 @@ i=-1
 	*P'<img height = "250" src = "<<$yup[i]>>">'
 if i < arrsize('you')-1: jump 'juwz'
 *nl
-	if land = 1: 'Сумма: <<you_tot>></td><td></td>' else 'Total Amount: <<you_tot>></td><td></td>' 
+	if land = 1: 'РЎСѓРјРјР°: <<you_tot>></td><td></td>' else 'Total Amount: <<you_tot>></td><td></td>' 
 *nl
-if lang = 1:'<td><b>Оппонент:</b>' else:'<td><b>Opponent</b>'
+if lang = 1:'<td><b>РћРїРїРѕРЅРµРЅС‚:</b>' else:'<td><b>Opponent</b>'
 i=-1
 :juww
 	i+=1
@@ -544,7 +544,7 @@ i=-1
 	*P'<img height = "250" src = "<<$dup[i]>>">'
 if i < arrsize('dealer')-1: jump 'juww'
 *nl
-    if lang = 1:'Сумма: <<dealer_tot>></td></tr></table>' else: 'Total: <<dealer_tot>></td></tr></table>'
+    if lang = 1:'РЎСѓРјРјР°: <<dealer_tot>></td></tr></table>' else: 'Total: <<dealer_tot>></td></tr></table>'
 
 
 act $next: 
@@ -560,10 +560,10 @@ end
 
 # lost
 gs 'mn'
-if lang = 1: '<center><h5>ВЫ ПРОИГРАЛИ</h5></center>' else: '<center><h5>YOU HAVE LOST</center></h5>'
+if lang = 1: '<center><h5>Р’Р« РџР РћРР“Р РђР›Р</h5></center>' else: '<center><h5>YOU HAVE LOST</center></h5>'
 
 '<table width="100%" align = "top"><tr>'
-if lang = 1: '<td width="550" align = "top"><b>Ваши карты:</b>' else: '<td width="550" align = "top"><b>Your Hand:</b>'
+if lang = 1: '<td width="550" align = "top"><b>Р’Р°С€Рё РєР°СЂС‚С‹:</b>' else: '<td width="550" align = "top"><b>Your Hand:</b>'
 
 i=-1
 :juwz
@@ -572,9 +572,9 @@ i=-1
 	*P'<img height = "250" src = "<<$yup[i]>>">'
 if i < arrsize('you')-1: jump 'juwz'
 *nl
-	if lang = 1: 'Сумма: <<you_tot>></td><td></td>' else 'Total Amount: <<you_tot>></td><td></td>' 
+	if lang = 1: 'РЎСѓРјРјР°: <<you_tot>></td><td></td>' else 'Total Amount: <<you_tot>></td><td></td>' 
 *nl
-if lang = 1: '<td align = "top"><b>Оппонент:</b>' else: '<td align = "top"><b>Opponent</b>'
+if lang = 1: '<td align = "top"><b>РћРїРїРѕРЅРµРЅС‚:</b>' else: '<td align = "top"><b>Opponent</b>'
 i=-1
 :juww
 	i+=1
@@ -582,7 +582,7 @@ i=-1
 	*P'<img height = "250" src = "<<$dup[i]>>">'
 if i < arrsize('dealer')-1: jump 'juww'
 *nl
-if lang = 1: 'Сумма: <<dealer_tot>></td></tr></table>' else 'Total Amount: <<dealer_tot>></td></tr></table>' 
+if lang = 1: 'РЎСѓРјРјР°: <<dealer_tot>></td></tr></table>' else 'Total Amount: <<dealer_tot>></td></tr></table>' 
 
 
 hi_bank += bank
@@ -601,16 +601,16 @@ end
 # win
 gs 'mn'
 if wint = 10:
-	if lang = 1: '<center><h5>ВЫ ВЫИГРАЛИ <<bank>> монеты</center></h5>' else: '<center><h5>YOU HAVE WON <<bank>> chips</center></h5>'
+	if lang = 1: '<center><h5>Р’Р« Р’Р«РР“Р РђР›Р <<bank>> РјРѕРЅРµС‚С‹</center></h5>' else: '<center><h5>YOU HAVE WON <<bank>> chips</center></h5>'
 	your_bank+=bank
 elseif wint = 15:
-	nbank = bank*15/10
+	nbank = bank*15/99
 	your_bank+=nbank
 	hi_bank-=nbank-bank
-	if lang = 1: '<center><h5>ВЫ ВЫИГРАЛИ <<nbank>></center></h5>' else: '<center><h5>YOU HAVE WON <<nbank>> chips</center></h5>'
+	if lang = 1: '<center><h5>Р’Р« Р’Р«РР“Р РђР›Р <<nbank>></center></h5>' else: '<center><h5>YOU HAVE WON <<nbank>> chips</center></h5>'
 end
 '<table width="100%"><tr>'
-if lang = 1: '<td width="550" align = "top"><b>Ваши карты:</b>' else: '<td width="550" align = "top"><b>Your Hand:</b>'
+if lang = 1: '<td width="550" align = "top"><b>Р’Р°С€Рё РєР°СЂС‚С‹:</b>' else: '<td width="550" align = "top"><b>Your Hand:</b>'
 i=-1
 :juwz1
 	i+=1
@@ -618,9 +618,9 @@ i=-1
 	*P'<img height = "250" src = "<<$yup[i]>>">'
 if i < arrsize('you')-1: jump 'juwz1'
 *nl
-	if lang = 1: 'Сумма: <<you_tot>></td><td></td>' else: 'Total Amount: <<you_tot>></td><td></td>'
+	if lang = 1: 'РЎСѓРјРјР°: <<you_tot>></td><td></td>' else: 'Total Amount: <<you_tot>></td><td></td>'
 *nl
-	if lang = 1: '<td><b>Карты оппонента</b>:' else: "<td><b>Opponent's Hand</b>:"
+	if lang = 1: '<td><b>РљР°СЂС‚С‹ РѕРїРїРѕРЅРµРЅС‚Р°</b>:' else: "<td><b>Opponent's Hand</b>:"
 i=-1
 :juww
 	i+=1
@@ -628,7 +628,7 @@ i=-1
 	*P'<img height = "250" src = "<<$dup[i]>>">'
 if i < arrsize('dealer')-1: jump 'juww'
 *nl
-if lang = 1: 'Сумма: <<dealer_tot>></td></tr></table>' else 'Total Amount: <<dealer_tot>></td></tr></table>' 
+if lang = 1: 'РЎСѓРјРјР°: <<dealer_tot>></td></tr></table>' else 'Total Amount: <<dealer_tot>></td></tr></table>' 
 
 act $next:
 	bank = 0
@@ -644,7 +644,7 @@ end
 --- win ---------------------------------
 
 # finalend
-if lang = 1: 'Вы закончили игру <<$results>>!' else: 'You have finished the game <<$results>>!' 
+if lang = 1: 'Р’С‹ Р·Р°РєРѕРЅС‡РёР»Рё РёРіСЂСѓ <<$results>>!' else: 'You have finished the game <<$results>>!' 
 *P'<center> <img height = "250" src = "/pic/joker1.jpg"> <img width = "250" src = "/pic/joker2.jpg"></center>'
 --- finalend ---------------------------------
 
